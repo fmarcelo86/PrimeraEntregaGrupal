@@ -1,0 +1,46 @@
+{{>headers}}
+
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        {{>banner}}
+            {{#if crear_curso}}
+                {{>from_crear}}
+            {{else if guardar_curso}}
+                <h2>Curso {{msg}} creado con éxito</h2>
+                <p>A continuacion se presenta la lista de cursos creados hasta la fecha</p>
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dar">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Valor</th>
+                        <th>Modalidad</th>
+                        <th>Intensidad</th>
+                        <th>Estado</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each cursos}}
+                        <tr>
+                            <td>{{this.id}}</td>
+                            <td>{{this.nombre}}</td>
+                            <td>{{this.descripcion}}</td>
+                            <td>{{this.valor}}</td>
+                            <td>{{this.modalidad}}</td>
+                            <td>{{this.horaria}}</td>
+                            <td>{{this.estado}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{else if error_curso}}
+                <div class="alert alert-danger" role="alert">
+                    {{msgError}}
+                </div>
+                <a href="/crear" class="btn btn-primary">Volver</a>
+            {{/if}}
+            {{>copyright}}
+        </div>
+    </div>
+{{>footer}}

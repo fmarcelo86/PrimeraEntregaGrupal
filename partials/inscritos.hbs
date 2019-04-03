@@ -1,0 +1,44 @@
+<div id="accordion">
+    <div class="row text-center container-fluid">
+    {{#each inscritos as |item|}}
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header" id="headingOne{{this.id}}">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne{{this.id}}" aria-expanded="true" aria-controls="collapseOne{{this.id}}">
+                            {{nombre}}
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseOne{{this.id}}" class="collapse hidden" aria-labelledby="headingOne{{this.id}}" data-parent="#accordion">
+                        <table class="table-responsive table-striped table-hover tabla-inscritos">
+                            <thead class="thead-dark text-white" style="background-color: #343a40">
+                            <tr>
+                                <th>Documento</th>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Telefono</th>
+                                <th>Eliminar</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each estudiantes}}
+                                <tr>
+                                    <td>{{documento}}</td>
+                                    <td>{{nombre}}</td>
+                                    <td>{{correo}}</td>
+                                    <td>{{telefono}}</td>
+                                    <td><form action="" method="post">
+                                        <input type="hidden" name="idCurso" value="{{item.id}}" />
+                                        <button type="submit" name="documento" value="{{documento}}" class="btn-sm btn-danger">Eliminar</button>
+                                    </form></td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<h4>Formulario para inscribirse en un curso</h4>
+<p>Utilice este formulario para inscribirse en un nuevo curso</p>
+<hr />
+<form action="/inscribir" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="documento">Documento de identidad</label>
+            <input type="text" required class="form-control" id="documento" name="documento" placeholder="Documento">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="correo">Correo Electronico</label>
+            <input type="email" required class="form-control" name="correo" id="correo" placeholder="Correo">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="nombre">Nombre</label>
+            <input type="text" required class="form-control" name="nombre" id="nombre" placeholder="Nombre">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="telefono">Telefono</label>
+            <input type="text" required class="form-control" name="telefono" id="telefono" placeholder="Telefono">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="curso">Cursos disponibles</label>
+            <select class="form-control" name="curso" id="curso">
+                <option value="{}">-</option>
+                {{#each cursos}}
+                    <option value="{{json this}}">{{this.nombre}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+</form>

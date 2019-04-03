@@ -1,0 +1,15 @@
+{{>headers}}
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        {{>banner}}
+        {{#if eliminar_alumno}}
+            <div class="alert alert-danger" role="alert">
+                Se ha eliminado exitosamente al usuario
+            </div>
+            <a href="/verinscritos" class="btn btn-primary">Volver</a>
+        {{/if}}
+        {{>inscritos}}
+        {{>copyright}}
+    </div>
+</div>
+{{>footer}}

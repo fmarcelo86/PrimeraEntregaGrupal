@@ -1,0 +1,101 @@
+{{>headers}}
+
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        {{>banner}}
+            {{#if actualizar_curso}}
+                <div class="alert alert-success" role="alert">
+                    Se ha actualizado exitosamente el curso
+                </div>
+            {{/if}}
+                <h2>Ver cursos como administrador</h2>
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Valor</th>
+                        <th>Modalidad</th>
+                        <th>Intensidad</th>
+                        <th>Estado</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each cursos}}
+                        <tr>
+                            <td>{{this.id}}</td>
+                            <td>{{this.nombre}}</td>
+                            <td>{{this.descripcion}}</td>
+                            <td>{{this.valor}}</td>
+                            <td>{{this.modalidad}}</td>
+                            <td>{{this.horaria}}</td>
+                            <td>{{this.estado}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            <h2>Actualizar estado de curso</h2>
+            <form action="" method="post">
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="curso">Cursos disponibles</label>
+                        <select class="form-control" name="idCurso" id="idCurso">
+                            <option value="">-</option>
+                            {{#each cursos}}
+                                <option value="{{id}}">{{nombre}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+            <h2>Ver cursos como interesado</h2>
+
+            <div id="accordion">
+                <div class="row text-center">
+                    {{#each cursosDisponibles}}
+
+                        <div class="col-lg-6 col-md-6 mb-1">
+                            <div class="card">
+                                <div class="card-header" id="headingOne{{this.id}}">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne{{this.id}}" aria-expanded="true" aria-controls="collapseOne{{this.id}}">
+                                            <b>{{nombre}}</b> <br />
+                                            valor: {{valor}}
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseOne{{this.id}}" class="collapse hidden text-left" aria-labelledby="headingOne{{this.id}}" data-parent="#accordion">
+                                    <div class="mb-2">
+                                        <b>Nombre:</b><br />
+                                        <span>{{nombre}}</span>
+                                    </div>
+                                    <div class="mb-2">
+                                        <b>Valor:</b><br />
+                                        <span>{{valor}}</span>
+                                    </div>
+                                    <div class="mb-2">
+                                        <b>Descripción:</b><br />
+                                        <span>{{descripcion}}</span>
+                                    </div>
+                                    <div class="mb-2">
+                                        <b>Modalidad:</b><br />
+                                        <span>{{modalidad}}</span>
+                                    </div>
+                                    <div class="mb-2">
+                                        <b>Intensidad:</b><br />
+                                        <span>{{horaria}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {{/each}}
+                </div>
+            </div>
+
+        {{>copyright}}
+        </div>
+    </div>
+{{>footer}}

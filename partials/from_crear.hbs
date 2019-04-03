@@ -1,0 +1,42 @@
+<h4>Formulario para ingresar nuevos curso</h4>
+<p>Utilice este formulario para ingresar la información de un nuevo curso</p>
+<hr />
+<form action="/crear" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="id">Id</label>
+            <input type="text" required class="form-control" id="id" name="id" placeholder="Id">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="nombre">Nombre</label>
+            <input type="text" required class="form-control" name="nombre" id="nombre" placeholder="Nombre">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="modalidad">Modalidad</label>
+            <select class="form-control" name="modalidad" id="modalidad">
+                <option value="">-</option>
+                <option value="Presencial">Presencial</option>
+                <option value="Virtual">Virtual</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="valor">Valor</label>
+            <input type="number" class="form-control" required name="valor" id="valor" placeholder="Valor">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="descripcion">Descripcion</label>
+            <textarea class="form-control" name="descripcion" id="descripcion" required placeholder="Descripcion"></textarea>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="horaria">Intesidad Horaria</label>
+            <input type="text" class="form-control" name="horaria" id="horaria" placeholder="Intesidad Horaria">
+        </div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary center-block">Enviar</button>
+    </div>
+</form>

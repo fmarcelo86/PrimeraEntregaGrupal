@@ -1,0 +1,19 @@
+{{>headers}}
+
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        {{>banner}}
+            {{#if inscribir_curso}}
+                {{>from_inscribir}}
+            {{else if guardar_inscribir}}
+                <h2>Estudiante {{nombre}} inscrito con éxito en el curso {{curso}}</h2>
+            {{else if error_inscribir}}
+                <div class="alert alert-danger" role="alert">
+                    {{msgError}}
+                </div>
+                <a href="/inscribir" class="btn btn-primary">Volver</a>
+            {{/if}}
+            {{>copyright}}
+    </div>
+</div>
+{{>footer}}
