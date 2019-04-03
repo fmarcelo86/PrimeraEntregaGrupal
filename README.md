@@ -1,4 +1,4 @@
-# Segunda Entrega Grupal
+# Primera Entrega Grupal
 
 ## npm install
 
